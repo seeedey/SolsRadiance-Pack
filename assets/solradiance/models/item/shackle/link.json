@@ -1,0 +1,74 @@
+{
+  "parent": "solradiance:item/shackle/base",
+  "elements": [
+    {
+      "name": "link",
+      "from": [
+        6.5,
+        5.5,
+        7.5
+      ],
+      "to": [
+        9.5,
+        10.5,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.5,
+            1.0,
+            14.25,
+            2.25
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            14.25,
+            1.0,
+            15.0,
+            2.25
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            15.0,
+            1.0,
+            15.25,
+            2.25
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            15.25,
+            1.0,
+            15.5,
+            2.25
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            2.25,
+            0.75,
+            2.5
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            0.75,
+            2.25,
+            1.5,
+            2.5
+          ],
+          "texture": "#shackle"
+        }
+      }
+    }
+  ]
+}

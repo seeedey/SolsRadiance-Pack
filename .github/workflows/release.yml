@@ -1,0 +1,55 @@
+name: Release pack
+
+# Every push to main zips the pack and publishes it as a new release marked "latest", together with its
+# sha1. Servers point at the fixed link
+#   https://github.com/seeedey/SolsRadiance-Pack/releases/latest/download/SolsRadiance_pack.zip
+# and the Sol's Radiance plugin reads SolsRadiance_pack.zip.sha1 next to it, so they always offer the
+# newest pack without anyone editing a hash.
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["README.md"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Zip the pack
+        run: |
+          python3 - <<'EOF'
+          import hashlib, os, zipfile
+          from pathlib import Path
+
+          # everything except dot-folders (.git, .github) and this repo's README
+          files = sorted(p for p in Path(".").rglob("*")
+                         if p.is_file() and not any(part.startswith(".") for part in p.parts) and p.name != "README.md")
+          with zipfile.ZipFile("SolsRadiance_pack.zip", "w", zipfile.ZIP_DEFLATED) as z:
+              for p in files:
+                  info = zipfile.ZipInfo(p.as_posix(), date_time=(2026, 1, 1, 0, 0, 0))
+                  info.compress_type = zipfile.ZIP_DEFLATED
+                  z.writestr(info, p.read_bytes())
+          sha1 = hashlib.sha1(Path("SolsRadiance_pack.zip").read_bytes()).hexdigest()
+          Path("SolsRadiance_pack.zip.sha1").write_text(sha1 + "\n")
+          with open(os.environ["GITHUB_ENV"], "a") as env:
+              env.write(f"PACK_SHA1={sha1}\n")
+          print(f"{len(files)} files, sha1 {sha1}")
+          EOF
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="pack-${GITHUB_RUN_NUMBER}"
+          gh release create "$tag" SolsRadiance_pack.zip SolsRadiance_pack.zip.sha1 \
+            --title "Pack ${GITHUB_RUN_NUMBER}" \
+            --notes "sha1: \`${PACK_SHA1}\`
+
+          Built from ${GITHUB_SHA::7}. Servers using https://github.com/${GITHUB_REPOSITORY}/releases/latest/download/SolsRadiance_pack.zip pick this up automatically." \
+            --latest

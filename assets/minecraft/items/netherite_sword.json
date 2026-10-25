@@ -1,0 +1,36 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "entries": [
+      {
+        "threshold": 700100,
+        "model": {
+          "type": "minecraft:composite",
+          "models": [
+            {
+              "type": "minecraft:model",
+              "model": "solradiance:item/glaive/body"
+            },
+            {
+              "type": "minecraft:model",
+              "model": "solradiance:item/glaive/core_00"
+            }
+          ]
+        }
+      },
+      {
+        "threshold": 700101,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/netherite_sword"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/netherite_sword"
+    }
+  }
+}

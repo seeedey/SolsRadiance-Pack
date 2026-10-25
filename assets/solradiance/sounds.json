@@ -1,0 +1,415 @@
+{
+  "flare_cast": {
+    "sounds": [
+      {
+        "name": "item/trident/riptide1",
+        "volume": 0.8,
+        "pitch": 1.5,
+        "weight": 1
+      },
+      {
+        "name": "item/trident/riptide2",
+        "volume": 0.8,
+        "pitch": 1.5,
+        "weight": 1
+      },
+      {
+        "name": "item/trident/riptide3",
+        "volume": 0.8,
+        "pitch": 1.5,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Solar Flare"
+  },
+  "flare_cast_layer": {
+    "sounds": [
+      {
+        "name": "block/beacon/power1",
+        "volume": 0.9,
+        "pitch": 1.8,
+        "weight": 1
+      },
+      {
+        "name": "block/beacon/power2",
+        "volume": 0.9,
+        "pitch": 1.8,
+        "weight": 1
+      },
+      {
+        "name": "block/beacon/power3",
+        "volume": 0.9,
+        "pitch": 1.8,
+        "weight": 1
+      }
+    ]
+  },
+  "flare_impact": {
+    "sounds": [
+      {
+        "name": "random/explode1",
+        "volume": 0.9,
+        "pitch": 1.2,
+        "weight": 1
+      },
+      {
+        "name": "random/explode2",
+        "volume": 0.9,
+        "pitch": 1.2,
+        "weight": 1
+      },
+      {
+        "name": "random/explode3",
+        "volume": 0.9,
+        "pitch": 1.2,
+        "weight": 1
+      },
+      {
+        "name": "random/explode4",
+        "volume": 0.9,
+        "pitch": 1.2,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Solar Flare bursts"
+  },
+  "flare_impact_layer": {
+    "sounds": [
+      {
+        "name": "fireworks/largeblast1",
+        "volume": 1.0,
+        "pitch": 0.8,
+        "weight": 1
+      },
+      {
+        "name": "fire/ignite",
+        "volume": 1.0,
+        "pitch": 0.7,
+        "weight": 1
+      }
+    ]
+  },
+  "flash": {
+    "sounds": [
+      {
+        "name": "block/beacon/activate",
+        "volume": 0.9,
+        "pitch": 2.0,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Solar Flash"
+  },
+  "flash_layer": {
+    "sounds": [
+      {
+        "name": "fireworks/twinkle1",
+        "volume": 0.8,
+        "pitch": 1.4,
+        "weight": 1
+      }
+    ]
+  },
+  "supernova_charge": {
+    "sounds": [
+      {
+        "name": "block/respawn_anchor/charge1",
+        "volume": 0.9,
+        "pitch": 0.8,
+        "weight": 1
+      },
+      {
+        "name": "block/respawn_anchor/charge2",
+        "volume": 0.9,
+        "pitch": 0.8,
+        "weight": 1
+      },
+      {
+        "name": "block/respawn_anchor/charge3",
+        "volume": 0.9,
+        "pitch": 0.8,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Supernova gathers"
+  },
+  "supernova_charge_layer": {
+    "sounds": [
+      {
+        "name": "block/beacon/power1",
+        "volume": 0.8,
+        "pitch": 0.6,
+        "weight": 1
+      },
+      {
+        "name": "block/beacon/power2",
+        "volume": 0.8,
+        "pitch": 0.6,
+        "weight": 1
+      },
+      {
+        "name": "block/beacon/power3",
+        "volume": 0.8,
+        "pitch": 0.6,
+        "weight": 1
+      }
+    ]
+  },
+  "supernova_blast": {
+    "sounds": [
+      {
+        "name": "mob/warden/sonic_boom1",
+        "volume": 1.0,
+        "pitch": 0.75,
+        "weight": 1
+      },
+      {
+        "name": "mob/warden/sonic_boom2",
+        "volume": 1.0,
+        "pitch": 0.75,
+        "weight": 1
+      },
+      {
+        "name": "mob/warden/sonic_boom3",
+        "volume": 1.0,
+        "pitch": 0.75,
+        "weight": 1
+      },
+      {
+        "name": "mob/warden/sonic_boom4",
+        "volume": 1.0,
+        "pitch": 0.75,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Supernova"
+  },
+  "supernova_blast_layer": {
+    "sounds": [
+      {
+        "name": "ambient/weather/thunder1",
+        "volume": 0.8,
+        "pitch": 1.1,
+        "weight": 1
+      },
+      {
+        "name": "ambient/weather/thunder2",
+        "volume": 0.8,
+        "pitch": 1.1,
+        "weight": 1
+      },
+      {
+        "name": "random/explode1",
+        "volume": 1.0,
+        "pitch": 0.6,
+        "weight": 1
+      },
+      {
+        "name": "random/explode2",
+        "volume": 1.0,
+        "pitch": 0.6,
+        "weight": 1
+      }
+    ]
+  },
+  "zenith_charge": {
+    "sounds": [
+      {
+        "name": "block/beacon/ambient",
+        "volume": 0.8,
+        "pitch": 1.0,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Zenith Flight charges"
+  },
+  "zenith_charge_layer": {
+    "sounds": [
+      {
+        "name": "block/enchantment_table/enchant1",
+        "volume": 0.6,
+        "pitch": 1.0,
+        "weight": 1
+      },
+      {
+        "name": "block/enchantment_table/enchant2",
+        "volume": 0.6,
+        "pitch": 1.0,
+        "weight": 1
+      },
+      {
+        "name": "block/enchantment_table/enchant3",
+        "volume": 0.6,
+        "pitch": 1.0,
+        "weight": 1
+      }
+    ]
+  },
+  "zenith_launch": {
+    "sounds": [
+      {
+        "name": "entity/wind_charge/wind_burst1",
+        "volume": 1.0,
+        "pitch": 0.9,
+        "weight": 1
+      },
+      {
+        "name": "entity/wind_charge/wind_burst2",
+        "volume": 1.0,
+        "pitch": 0.9,
+        "weight": 1
+      },
+      {
+        "name": "entity/wind_charge/wind_burst3",
+        "volume": 1.0,
+        "pitch": 0.9,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Zenith Flight"
+  },
+  "zenith_launch_layer": {
+    "sounds": [
+      {
+        "name": "item/trident/riptide1",
+        "volume": 0.8,
+        "pitch": 1.5,
+        "weight": 1
+      },
+      {
+        "name": "item/trident/riptide2",
+        "volume": 0.8,
+        "pitch": 1.5,
+        "weight": 1
+      },
+      {
+        "name": "item/trident/riptide3",
+        "volume": 0.8,
+        "pitch": 1.5,
+        "weight": 1
+      }
+    ]
+  },
+  "relic_place": {
+    "sounds": [
+      {
+        "name": "block/end_portal/eyeplace1",
+        "volume": 0.9,
+        "pitch": 1.3,
+        "weight": 1
+      },
+      {
+        "name": "block/end_portal/eyeplace2",
+        "volume": 0.9,
+        "pitch": 1.3,
+        "weight": 1
+      },
+      {
+        "name": "block/end_portal/eyeplace3",
+        "volume": 0.9,
+        "pitch": 1.3,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Relic set"
+  },
+  "relic_place_layer": {
+    "sounds": [
+      {
+        "name": "block/vault/insert",
+        "volume": 0.8,
+        "pitch": 1.2,
+        "weight": 1
+      }
+    ]
+  },
+  "ritual_chime": {
+    "sounds": [
+      {
+        "name": "note/bell",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "weight": 1
+      }
+    ],
+    "subtitle": "The sun answers"
+  },
+  "ritual_chime_layer": {
+    "sounds": [
+      {
+        "name": "block/beacon/power1",
+        "volume": 0.5,
+        "pitch": 1.0,
+        "weight": 1
+      }
+    ]
+  },
+  "ritual_hum": {
+    "sounds": [
+      {
+        "name": "block/beacon/ambient",
+        "volume": 1.0,
+        "pitch": 1.0,
+        "weight": 1
+      }
+    ]
+  },
+  "ritual_hum_layer": {
+    "sounds": [
+      {
+        "name": "block/respawn_anchor/ambient1",
+        "volume": 0.8,
+        "pitch": 0.8,
+        "weight": 1
+      }
+    ]
+  },
+  "ritual_strike": {
+    "sounds": [
+      {
+        "name": "ambient/weather/thunder1",
+        "volume": 0.8,
+        "pitch": 1.1,
+        "weight": 1
+      },
+      {
+        "name": "ambient/weather/thunder2",
+        "volume": 0.8,
+        "pitch": 1.1,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Solar strike"
+  },
+  "ritual_strike_layer": {
+    "sounds": [
+      {
+        "name": "item/totem/use_totem",
+        "volume": 1.0,
+        "pitch": 0.8,
+        "weight": 1
+      }
+    ]
+  },
+  "glaive_claim": {
+    "sounds": [
+      {
+        "name": "item/totem/use_totem",
+        "volume": 0.9,
+        "pitch": 1.25,
+        "weight": 1
+      }
+    ],
+    "subtitle": "Sol's Radiance claimed"
+  },
+  "glaive_claim_layer": {
+    "sounds": [
+      {
+        "name": "block/beacon/activate",
+        "volume": 1.0,
+        "pitch": 1.4,
+        "weight": 1
+      }
+    ]
+  }
+}

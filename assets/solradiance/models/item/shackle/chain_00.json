@@ -1,0 +1,709 @@
+{
+  "parent": "solradiance:item/shackle/base",
+  "elements": [
+    {
+      "name": "link 0",
+      "from": [
+        7.218,
+        -1.718,
+        7.5
+      ],
+      "to": [
+        9.218,
+        0.282,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            0.5,
+            0.0,
+            1.0,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            1.0,
+            0.0,
+            1.25,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            1.25,
+            0.0,
+            1.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            1.5,
+            0.0,
+            2.0,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            2.0,
+            0.0,
+            2.5,
+            0.25
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.218,
+          -0.718,
+          8.0
+        ],
+        "axis": "z",
+        "angle": 16.86
+      }
+    },
+    {
+      "name": "link 1",
+      "from": [
+        8.122,
+        -3.162,
+        7.0
+      ],
+      "to": [
+        9.122,
+        -1.162,
+        9.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.5,
+            0.0,
+            2.75,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            2.75,
+            0.0,
+            3.0,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            3.0,
+            0.0,
+            3.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            3.5,
+            0.0,
+            4.0,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            4.0,
+            0.0,
+            4.25,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            4.25,
+            0.0,
+            4.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.622,
+          -2.162,
+          8.0
+        ],
+        "axis": "z",
+        "angle": 14.44
+      }
+    },
+    {
+      "name": "link 2",
+      "from": [
+        7.945,
+        -4.626,
+        7.5
+      ],
+      "to": [
+        9.945,
+        -2.626,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            0.5,
+            0.0,
+            1.0,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            1.0,
+            0.0,
+            1.25,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            1.25,
+            0.0,
+            1.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            1.5,
+            0.0,
+            2.0,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            2.0,
+            0.0,
+            2.5,
+            0.25
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.945,
+          -3.626,
+          8.0
+        ],
+        "axis": "z",
+        "angle": 10.46
+      }
+    },
+    {
+      "name": "link 3",
+      "from": [
+        8.654,
+        -6.11,
+        7.0
+      ],
+      "to": [
+        9.654,
+        -4.11,
+        9.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.5,
+            0.0,
+            2.75,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            2.75,
+            0.0,
+            3.0,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            3.0,
+            0.0,
+            3.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            3.5,
+            0.0,
+            4.0,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            4.0,
+            0.0,
+            4.25,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            4.25,
+            0.0,
+            4.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.154,
+          -5.11,
+          8.0
+        ],
+        "axis": "z",
+        "angle": 5.57
+      }
+    },
+    {
+      "name": "dart eye",
+      "from": [
+        8.727,
+        -6.856,
+        7.5
+      ],
+      "to": [
+        9.727,
+        -5.856,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            0.0,
+            4.75,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            4.75,
+            0.0,
+            5.0,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            5.0,
+            0.0,
+            5.25,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            5.25,
+            0.0,
+            5.5,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            5.5,
+            0.0,
+            5.75,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            5.75,
+            0.0,
+            6.0,
+            0.25
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.227,
+          -6.356,
+          8.0
+        ],
+        "axis": "z",
+        "angle": -0.03
+      }
+    },
+    {
+      "name": "dart collar",
+      "from": [
+        7.726,
+        -7.856,
+        6.5
+      ],
+      "to": [
+        10.726,
+        -6.856,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6.0,
+            0.0,
+            6.75,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            6.75,
+            0.0,
+            7.5,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            0.0,
+            8.25,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            8.25,
+            0.0,
+            9.0,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            9.0,
+            0.0,
+            9.75,
+            0.75
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            9.75,
+            0.0,
+            10.5,
+            0.75
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.226,
+          -7.356,
+          8.0
+        ],
+        "axis": "z",
+        "angle": -0.03
+      }
+    },
+    {
+      "name": "dart blade",
+      "from": [
+        8.225,
+        -11.856,
+        7.5
+      ],
+      "to": [
+        10.225,
+        -7.856,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10.5,
+            0.0,
+            11.0,
+            1.0
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            11.0,
+            0.0,
+            11.5,
+            1.0
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            11.5,
+            0.0,
+            11.75,
+            1.0
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            11.75,
+            0.0,
+            12.0,
+            1.0
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            12.0,
+            0.0,
+            12.5,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            12.5,
+            0.0,
+            13.0,
+            0.25
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.225,
+          -9.856,
+          8.0
+        ],
+        "axis": "z",
+        "angle": -0.03
+      }
+    },
+    {
+      "name": "dart tip",
+      "from": [
+        8.723,
+        -13.856,
+        7.5
+      ],
+      "to": [
+        9.723,
+        -11.856,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            0.0,
+            13.25,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            13.25,
+            0.0,
+            13.5,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            13.5,
+            0.0,
+            13.75,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            13.75,
+            0.0,
+            14.0,
+            0.5
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            14.0,
+            0.0,
+            14.25,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.0,
+            14.5,
+            0.25
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.223,
+          -12.856,
+          8.0
+        ],
+        "axis": "z",
+        "angle": -0.03
+      }
+    },
+    {
+      "name": "dart glow",
+      "from": [
+        8.722,
+        -14.856,
+        7.5
+      ],
+      "to": [
+        9.722,
+        -13.856,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            0.0,
+            14.75,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            14.75,
+            0.0,
+            15.0,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            15.0,
+            0.0,
+            15.25,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            15.25,
+            0.0,
+            15.5,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            15.5,
+            0.0,
+            15.75,
+            0.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            15.75,
+            0.0,
+            16.0,
+            0.25
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          9.222,
+          -14.356,
+          8.0
+        ],
+        "axis": "z",
+        "angle": -0.03
+      },
+      "light_emission": 15,
+      "shade": false
+    }
+  ]
+}

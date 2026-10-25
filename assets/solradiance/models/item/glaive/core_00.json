@@ -1,0 +1,165 @@
+{
+  "parent": "solradiance:item/glaive/base",
+  "elements": [
+    {
+      "name": "sun core",
+      "from": [
+        6,
+        13.5,
+        6
+      ],
+      "to": [
+        10,
+        17.5,
+        10
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#core"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#core"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#core"
+        },
+        "west": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#core"
+        },
+        "up": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#core"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#core"
+        }
+      },
+      "light_emission": 15,
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          15.5,
+          8
+        ],
+        "axis": "y",
+        "angle": 0.0
+      }
+    },
+    {
+      "name": "sun core facet",
+      "from": [
+        6.5,
+        14,
+        6.5
+      ],
+      "to": [
+        9.5,
+        17,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            11,
+            3
+          ],
+          "texture": "#core"
+        },
+        "east": {
+          "uv": [
+            12,
+            0,
+            15,
+            3
+          ],
+          "texture": "#core"
+        },
+        "south": {
+          "uv": [
+            0,
+            4,
+            3,
+            7
+          ],
+          "texture": "#core"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            7,
+            7
+          ],
+          "texture": "#core"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            3,
+            3
+          ],
+          "texture": "#core"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            7,
+            3
+          ],
+          "texture": "#core"
+        }
+      },
+      "light_emission": 15,
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          15.5,
+          8
+        ],
+        "axis": "y",
+        "angle": -45.0
+      }
+    }
+  ]
+}

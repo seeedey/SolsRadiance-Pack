@@ -1,0 +1,91 @@
+{
+  "model": {
+    "type": "minecraft:composite",
+    "models": [
+      {
+        "type": "minecraft:model",
+        "model": "solradiance:item/shackle/body"
+      },
+      {
+        "type": "minecraft:range_dispatch",
+        "property": "minecraft:cooldown",
+        "entries": [
+          {
+            "threshold": 0.05,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_09"
+            }
+          },
+          {
+            "threshold": 0.15,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_08"
+            }
+          },
+          {
+            "threshold": 0.25,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_07"
+            }
+          },
+          {
+            "threshold": 0.35,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_06"
+            }
+          },
+          {
+            "threshold": 0.45,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_05"
+            }
+          },
+          {
+            "threshold": 0.55,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_04"
+            }
+          },
+          {
+            "threshold": 0.65,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_03"
+            }
+          },
+          {
+            "threshold": 0.75,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_02"
+            }
+          },
+          {
+            "threshold": 0.85,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_01"
+            }
+          },
+          {
+            "threshold": 0.95,
+            "model": {
+              "type": "minecraft:model",
+              "model": "solradiance:item/shackle/chain_00"
+            }
+          }
+        ],
+        "fallback": {
+          "type": "minecraft:model",
+          "model": "solradiance:item/shackle/chain_rest"
+        }
+      }
+    ]
+  }
+}

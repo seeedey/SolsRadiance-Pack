@@ -1,0 +1,31 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_flash.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_supernova.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_corona.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    }
+  ]
+}
