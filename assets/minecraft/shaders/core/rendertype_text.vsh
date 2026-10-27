@@ -8,7 +8,7 @@
 // one of ours is drawn exactly as vanilla.
 //
 // The plugin sends a title made of solradiance:fx glyphs. Each is a solid square of a KEY colour no real
-// glyph uses (texture rgb 211, 70..72, 250). A key glyph's quad is moved to cover the whole screen and
+// glyph uses (texture rgb 211, 70..74, 250). A key glyph's quad is moved to cover the whole screen and
 // its text colour carries the effect's three parameters. The font pushes the glyphs 1249 units below the
 // title line (5000 after the title's 4x scale), so only GUI text that far down is ever tested: a sign or
 // a text display in the world can never trigger an effect.
@@ -44,10 +44,10 @@ int keyAt(vec2 uv) {
         return 0;
     }
     ivec3 k = ivec3(round(c.rgb * 255.0));
-    if (k.r != 211 || k.b != 250 || k.g < 70 || k.g > 72) {
+    if (k.r != 211 || k.b != 250 || k.g < 70 || k.g > 74) {
         return 0;
     }
-    return k.g - 69;          // 1 flash, 2 supernova, 3 corona
+    return k.g - 69;          // 1 flash, 2 supernova, 3 corona, 4 swirl, 5 cracks
 }
 
 void main() {

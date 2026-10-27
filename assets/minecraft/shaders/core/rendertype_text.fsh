@@ -14,9 +14,10 @@
 // translucent colour over the screen. A 4x4 Bayer offset of half a step on alpha removes banding in the
 // long soft falloffs.
 //
-//   flash      (r strength, g warmth)
+//   flash      (r strength, g warmth, b cool)
 //              L = s·(1.6 − 0.5·r + 0.8·smoothstep(0.6, 1.6, r)) — the eye is blinded hardest in the middle,
-//              with a hot rim where the light wraps the edges; white tinted gold by warmth.
+//              with a hot rim where the light wraps the edges; white tinted gold by warmth, or toward
+//              moonlight by cool.
 //   supernova  (r strength, g progress p, b phase φ), f = 1 − p
 //              core   1.8·e^(−r²/(0.012 + 0.22 f))·f^1.5                       white-hot centre
 //              halo   0.55·e^(−2.4 r)·f                                         warm wide glow
@@ -32,6 +33,19 @@
 //              sines of 23θ + 2πφ, 41θ − 4πφ and 9θ + 2πφ (integer multiples of φ, so the loop is seamless);
 //              each shaft reaches (0.22 + 0.38n)(0.75 + 0.35·pulse) in from the edge and fades quadratically,
 //              over a soft white-gold rim.
+//   swirl      (r strength, g hue: 0 gold, 1 moonlight, b phase φ)
+//              a storm of light at the screen edges. The view is turned by 1.6/(0.6 + r) + 2πφ (a whirl,
+//              tighter toward the middle), domain-warped twice by 4-octave value noise whose offset runs
+//              round a circle of radius 0.8 with φ (so the loop is seamless): n = fbm(2.2w + 2.5·warp).
+//              Body 0.85·smoothstep(0.35, 0.75, n), streaks 1.1·(1 − |2n − 1|)^6, kept to the band
+//              smoothstep(0.45, 1.2, r).
+//   cracks     (r strength, g reach, b shimmer phase φ)
+//              cracked glass closing in from the edges: a Voronoi in polar coordinates (13 cells round,
+//              rows in 3.2·ln r, so cells grow toward the edges as on a shell seen from inside, and the
+//              seam at θ = ±π wraps). d = F2 − F1 is the distance to the nearest crack: a white-hot line
+//              e^(−d/0.035), a gold halo e^(−d/0.16), a faint amber in the cells, all beyond the radius
+//              1.45 − 1.40·reach and clear of the very middle. Feature points keep 0.12 inside their cell,
+//              so the 3×3 search always finds the true two nearest. Each cell's halo shimmers by 0.75 + 0.25·sin(40·id + 2πφ).
 
 uniform sampler2D Sampler0;
 
@@ -51,9 +65,38 @@ const vec3 WHITE_HOT = vec3(1.00, 0.98, 0.90);
 const vec3 WHITE_GOLD = vec3(1.00, 0.92, 0.70);
 const vec3 GOLD = vec3(1.00, 0.72, 0.26);
 const vec3 SOLAR = vec3(1.00, 0.46, 0.12);
+const vec3 MOON_WHITE = vec3(0.86, 0.95, 1.00);
+const vec3 MOON_CYAN = vec3(0.45, 0.82, 1.00);
+const vec3 AMBER = vec3(0.80, 0.48, 0.12);
 
 float hash1(float n) {
     return fract(sin(n * 127.1 + 311.7) * 43758.5453);
+}
+
+float hash2(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+float vnoise(vec2 x) {
+    vec2 i = floor(x);
+    vec2 f = fract(x);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    float a = hash2(i);
+    float b = hash2(i + vec2(1.0, 0.0));
+    float c = hash2(i + vec2(0.0, 1.0));
+    float d = hash2(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+float fbm(vec2 x) {
+    float s = 0.0;
+    float a = 0.5;
+    for (int i = 0; i < 4; i++) {
+        s += a * vnoise(x);
+        x = x * 2.03 + vec2(17.1, 9.2);
+        a *= 0.5;
+    }
+    return s;
 }
 
 float gauss(float x, float w) {
@@ -87,8 +130,8 @@ vec3 flash(vec2 q, vec3 p) {
     float r = length(q);
     float s = p.r;
     float body = 1.6 - 0.5 * r + 0.8 * smoothstep(0.6, 1.6, r);
-    vec3 tint = mix(WHITE_HOT, WHITE_GOLD, p.g);
-    vec3 rim = mix(WHITE_GOLD, GOLD, p.g);
+    vec3 tint = mix(mix(WHITE_HOT, WHITE_GOLD, p.g), MOON_WHITE, p.b);
+    vec3 rim = mix(mix(WHITE_GOLD, GOLD, p.g), MOON_CYAN, p.b);
     return s * mix(tint, rim, smoothstep(0.8, 1.6, r)) * body;
 }
 
@@ -157,6 +200,59 @@ vec3 corona(vec2 q, vec3 p) {
     return L * p.r;
 }
 
+vec3 swirl(vec2 q, vec3 p) {
+    vec2 e = q / vec2(fxAspect, 1.0);
+    float r = length(e);
+    float ph = p.b * TAU;
+    float a = 1.6 / (0.6 + r) + ph;
+    vec2 w = mat2(cos(a), -sin(a), sin(a), cos(a)) * q;
+    vec2 loop = 0.8 * vec2(cos(ph), sin(ph));
+    vec2 warp = vec2(fbm(w * 1.4 + loop), fbm(w * 1.4 - loop + 5.2));
+    float n = fbm(w * 2.2 + 2.5 * warp);
+    float streak = pow(1.0 - abs(2.0 * n - 1.0), 6.0);
+    float body = smoothstep(0.35, 0.75, n);
+    float band = smoothstep(0.45, 1.2, r);
+    vec3 deep = mix(GOLD, MOON_CYAN, p.g);
+    vec3 bright = mix(WHITE_GOLD, MOON_WHITE, p.g);
+    return (deep * body * 0.85 + bright * streak * 1.1) * band * p.r;
+}
+
+vec3 cracks(vec2 q, vec3 p) {
+    vec2 e = q / vec2(fxAspect, 1.0);
+    float r = length(e);
+    float th = atan(e.y, e.x);
+    const float P = 13.0;
+    vec2 g = vec2(th / TAU * P, log(max(r, 0.05)) * 3.2);
+    vec2 i = floor(g);
+    vec2 f = fract(g);
+    float d1 = 8.0;
+    float d2 = 8.0;
+    float id = 0.0;
+    for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+            vec2 c = vec2(float(x), float(y));
+            vec2 cell = vec2(mod(i.x + c.x, P), i.y + c.y);
+            vec2 o = 0.12 + 0.76 * vec2(hash2(cell), hash2(cell + 7.3));
+            vec2 dv = c + o - f;
+            float dd = dot(dv, dv);
+            if (dd < d1) {
+                d2 = d1;
+                d1 = dd;
+                id = hash2(cell + 3.1);
+            } else if (dd < d2) {
+                d2 = dd;
+            }
+        }
+    }
+    float d = sqrt(d2) - sqrt(d1);
+    float line = exp(-d / 0.035);
+    float halo = exp(-d / 0.16);
+    float edge = 1.45 - 1.40 * p.g;
+    float mask = smoothstep(edge - 0.25, edge + 0.15, r) * smoothstep(0.06, 0.32, r);
+    float shimmer = 0.75 + 0.25 * sin(id * 40.0 + p.b * TAU);
+    return (AMBER * 0.30 + GOLD * halo * 0.6 * shimmer + WHITE_HOT * line * 1.6) * mask * p.r;
+}
+
 void main() {
     if (fxKind == 0) {
         vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
@@ -173,8 +269,12 @@ void main() {
         L = flash(q, p);
     } else if (fxKind == 2) {
         L = supernova(q, p);
-    } else {
+    } else if (fxKind == 3) {
         L = corona(q, p);
+    } else if (fxKind == 4) {
+        L = swirl(q, p);
+    } else {
+        L = cracks(q, p);
     }
     vec4 c = asLight(L);
     c.a *= fxParams.a;

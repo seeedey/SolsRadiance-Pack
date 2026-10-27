@@ -26,6 +26,24 @@
       "chars": [
         ""
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_swirl.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_cracks.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
     }
   ]
 }
