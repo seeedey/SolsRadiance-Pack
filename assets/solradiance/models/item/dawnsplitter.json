@@ -1,0 +1,1348 @@
+{
+  "credit": "Sol's Radiance - built by tools/build_pack.py",
+  "texture_size": [
+    64,
+    64
+  ],
+  "textures": {
+    "prism": "solradiance:item/dawnsplitter",
+    "vein": "solradiance:item/dawnsplitter_vein",
+    "particle": "solradiance:item/dawnsplitter"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        -15,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        1.5,
+        0.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        -15,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        1.5,
+        0.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        -25,
+        90,
+        20
+      ],
+      "translation": [
+        1.5,
+        3.5,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        -25,
+        -90,
+        -20
+      ],
+      "translation": [
+        1.5,
+        3.5,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        -45
+      ],
+      "translation": [
+        -3,
+        -3,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        -45
+      ],
+      "translation": [
+        -3,
+        -3,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        14,
+        0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    }
+  },
+  "elements": [
+    {
+      "name": "pommel spike",
+      "from": [
+        7.5,
+        -3,
+        7.5
+      ],
+      "to": [
+        8.5,
+        -1,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            0.25,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            0.25,
+            0.0,
+            0.5,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            0.5,
+            0.0,
+            0.75,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            0.75,
+            0.0,
+            1.0,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            0.0,
+            1.25,
+            0.25
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            1.25,
+            0.0,
+            1.5,
+            0.25
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "pommel stone",
+      "from": [
+        7,
+        -1,
+        7
+      ],
+      "to": [
+        9,
+        1,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.5,
+            0.0,
+            2.0,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            2.0,
+            0.0,
+            2.5,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            2.5,
+            0.0,
+            3.0,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            3.0,
+            0.0,
+            3.5,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            3.5,
+            0.0,
+            4.0,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            4.0,
+            0.0,
+            4.5,
+            0.5
+          ],
+          "texture": "#prism"
+        }
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "pommel",
+      "from": [
+        7,
+        1,
+        7
+      ],
+      "to": [
+        9,
+        3,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            0.0,
+            5.0,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            5.0,
+            0.0,
+            5.5,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            5.5,
+            0.0,
+            6.0,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            6.0,
+            0.0,
+            6.5,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            6.5,
+            0.0,
+            7.0,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            7.0,
+            0.0,
+            7.5,
+            0.5
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "grip",
+      "from": [
+        7,
+        3,
+        7
+      ],
+      "to": [
+        9,
+        13,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.5,
+            0.0,
+            8.0,
+            2.5
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            8.0,
+            0.0,
+            8.5,
+            2.5
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            8.5,
+            0.0,
+            9.0,
+            2.5
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            9.0,
+            0.0,
+            9.5,
+            2.5
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            9.5,
+            0.0,
+            10.0,
+            0.5
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            10.0,
+            0.0,
+            10.5,
+            0.5
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "grip band",
+      "from": [
+        6.5,
+        7.5,
+        6.5
+      ],
+      "to": [
+        9.5,
+        8.5,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10.5,
+            0.0,
+            11.25,
+            0.25
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            11.25,
+            0.0,
+            12.0,
+            0.25
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            12.0,
+            0.0,
+            12.75,
+            0.25
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            12.75,
+            0.0,
+            13.5,
+            0.25
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            13.5,
+            0.0,
+            14.25,
+            0.75
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            14.25,
+            0.0,
+            15.0,
+            0.75
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "guard",
+      "from": [
+        4,
+        13,
+        7.5
+      ],
+      "to": [
+        12,
+        14,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            2.5,
+            2.0,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            2.0,
+            2.5,
+            4.0,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            4.0,
+            2.5,
+            4.25,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            4.25,
+            2.5,
+            4.5,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            2.5,
+            6.5,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            6.5,
+            2.5,
+            8.5,
+            2.75
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "quillon left",
+      "from": [
+        1,
+        13,
+        7.5
+      ],
+      "to": [
+        4,
+        14,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.5,
+            2.5,
+            9.25,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            9.25,
+            2.5,
+            10.0,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            10.0,
+            2.5,
+            10.25,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            10.25,
+            2.5,
+            10.5,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            10.5,
+            2.5,
+            11.25,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            11.25,
+            2.5,
+            12.0,
+            2.75
+          ],
+          "texture": "#prism"
+        }
+      },
+      "rotation": {
+        "origin": [
+          4,
+          13.5,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5
+      }
+    },
+    {
+      "name": "quillon right",
+      "from": [
+        12,
+        13,
+        7.5
+      ],
+      "to": [
+        15,
+        14,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.0,
+            2.5,
+            12.75,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            12.75,
+            2.5,
+            13.5,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            13.5,
+            2.5,
+            13.75,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            13.75,
+            2.5,
+            14.0,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            14.0,
+            2.5,
+            14.75,
+            2.75
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            14.75,
+            2.5,
+            15.5,
+            2.75
+          ],
+          "texture": "#prism"
+        }
+      },
+      "rotation": {
+        "origin": [
+          12,
+          13.5,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5
+      }
+    },
+    {
+      "name": "crystal left",
+      "from": [
+        1,
+        14,
+        7.5
+      ],
+      "to": [
+        2,
+        16,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            15.5,
+            2.5,
+            15.75,
+            3.0
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            15.75,
+            2.5,
+            16.0,
+            3.0
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            3.0,
+            0.25,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            0.25,
+            3.0,
+            0.5,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            3.0,
+            0.75,
+            3.25
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            0.75,
+            3.0,
+            1.0,
+            3.25
+          ],
+          "texture": "#prism"
+        }
+      },
+      "rotation": {
+        "origin": [
+          4,
+          13.5,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5
+      }
+    },
+    {
+      "name": "crystal right",
+      "from": [
+        14,
+        14,
+        7.5
+      ],
+      "to": [
+        15,
+        16,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            3.0,
+            1.25,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            1.25,
+            3.0,
+            1.5,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            1.5,
+            3.0,
+            1.75,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            1.75,
+            3.0,
+            2.0,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            2.0,
+            3.0,
+            2.25,
+            3.25
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            2.25,
+            3.0,
+            2.5,
+            3.25
+          ],
+          "texture": "#prism"
+        }
+      },
+      "rotation": {
+        "origin": [
+          12,
+          13.5,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5
+      }
+    },
+    {
+      "name": "collar",
+      "from": [
+        6.5,
+        14,
+        7
+      ],
+      "to": [
+        9.5,
+        15,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.5,
+            3.0,
+            3.25,
+            3.25
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            3.25,
+            3.0,
+            4.0,
+            3.25
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            4.0,
+            3.0,
+            4.5,
+            3.25
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            3.0,
+            5.0,
+            3.25
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            5.0,
+            3.0,
+            5.75,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            5.75,
+            3.0,
+            6.5,
+            3.5
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "prism core",
+      "from": [
+        7,
+        13,
+        6.5
+      ],
+      "to": [
+        9,
+        15,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6.5,
+            3.0,
+            7.0,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            7.0,
+            3.0,
+            7.5,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            3.0,
+            8.25,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            8.25,
+            3.0,
+            9.0,
+            3.5
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            9.0,
+            3.0,
+            9.5,
+            3.75
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            9.5,
+            3.0,
+            10.0,
+            3.75
+          ],
+          "texture": "#prism"
+        }
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "blade",
+      "from": [
+        6,
+        15,
+        7.5
+      ],
+      "to": [
+        10,
+        31,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10.0,
+            3.0,
+            11.0,
+            7.0
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            11.0,
+            3.0,
+            12.0,
+            7.0
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            12.0,
+            3.0,
+            12.25,
+            7.0
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            12.25,
+            3.0,
+            12.5,
+            7.0
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            12.5,
+            3.0,
+            13.5,
+            3.25
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            13.5,
+            3.0,
+            14.5,
+            3.25
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "ridge",
+      "from": [
+        7.5,
+        15,
+        7
+      ],
+      "to": [
+        8.5,
+        33,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.5,
+            3.0,
+            14.75,
+            7.5
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            14.75,
+            3.0,
+            15.0,
+            7.5
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            15.0,
+            3.0,
+            15.5,
+            7.5
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            15.5,
+            3.0,
+            16.0,
+            7.5
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            7.5,
+            0.25,
+            8.0
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            0.25,
+            7.5,
+            0.5,
+            8.0
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "blade taper",
+      "from": [
+        6.5,
+        31,
+        7.5
+      ],
+      "to": [
+        9.5,
+        34,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            7.5,
+            1.25,
+            8.25
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            1.25,
+            7.5,
+            2.0,
+            8.25
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            2.0,
+            7.5,
+            2.25,
+            8.25
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            2.25,
+            7.5,
+            2.5,
+            8.25
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            2.5,
+            7.5,
+            3.25,
+            7.75
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            3.25,
+            7.5,
+            4.0,
+            7.75
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "blade point",
+      "from": [
+        7.5,
+        34,
+        7.5
+      ],
+      "to": [
+        8.5,
+        37,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.0,
+            7.5,
+            4.25,
+            8.25
+          ],
+          "texture": "#prism"
+        },
+        "south": {
+          "uv": [
+            4.25,
+            7.5,
+            4.5,
+            8.25
+          ],
+          "texture": "#prism"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            7.5,
+            4.75,
+            8.25
+          ],
+          "texture": "#prism"
+        },
+        "west": {
+          "uv": [
+            4.75,
+            7.5,
+            5.0,
+            8.25
+          ],
+          "texture": "#prism"
+        },
+        "up": {
+          "uv": [
+            5.0,
+            7.5,
+            5.25,
+            7.75
+          ],
+          "texture": "#prism"
+        },
+        "down": {
+          "uv": [
+            5.25,
+            7.5,
+            5.5,
+            7.75
+          ],
+          "texture": "#prism"
+        }
+      }
+    },
+    {
+      "name": "vein north",
+      "from": [
+        7.5,
+        16,
+        6.99
+      ],
+      "to": [
+        8.5,
+        32,
+        6.99
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            1.0,
+            16
+          ],
+          "texture": "#vein"
+        }
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "vein south",
+      "from": [
+        7.5,
+        16,
+        9.01
+      ],
+      "to": [
+        8.5,
+        32,
+        9.01
+      ],
+      "faces": {
+        "south": {
+          "uv": [
+            0,
+            0,
+            1.0,
+            16
+          ],
+          "texture": "#vein"
+        }
+      },
+      "light_emission": 15,
+      "shade": false
+    }
+  ]
+}

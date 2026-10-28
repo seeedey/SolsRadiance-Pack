@@ -1,0 +1,27 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "entries": [
+      {
+        "threshold": 700102,
+        "model": {
+          "type": "minecraft:model",
+          "model": "solradiance:item/dawnsplitter"
+        }
+      },
+      {
+        "threshold": 700103,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/diamond_sword"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/diamond_sword"
+    }
+  }
+}
