@@ -44,6 +44,15 @@
       "chars": [
         ""
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_prism.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
     }
   ]
 }

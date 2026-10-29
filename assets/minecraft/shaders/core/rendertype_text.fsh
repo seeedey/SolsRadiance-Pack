@@ -46,6 +46,17 @@
 //              e^(−d/0.035), a gold halo e^(−d/0.16), a faint amber in the cells, all beyond the radius
 //              1.45 − 1.40·reach and clear of the very middle. Feature points keep 0.12 inside their cell,
 //              so the 3×3 search always finds the true two nearest. Each cell's halo shimmers by 0.75 + 0.25·sin(40·id + 2πφ).
+//   prism      (r strength, g ring progress p: 1 = no ring, b phase φ)
+//              the Dawnsplitter's light split into its colours. spectrum(t) = ½ + ½cos(2π(t − (0, ⅓, ⅔))).
+//              facets  a triangular lattice (3.4 per screen height) at the edges, smoothstep(0.7, 1.35, r):
+//                      each triangle a pane of tinted glass, spectrum(id + θ/4π + ⅛sin(φ + 2π·id)), shimmering
+//                      by 0.65 + 0.35 sin(2φ + 40 id), with white-hot leading e^(−d/0.028) along its edges
+//              rays    12 shafts turning with φ, |cos|^24 in angle, each shaft's colour running through the
+//                      spectrum with r, reaching in from the edges
+//              ring    a dispersion ring at R = 0.06 + 1.9p, width w = 0.04 + 0.13p: across it the colour
+//                      runs red (outside) to violet (inside), x = (r − R)/w, spectrum(0.5 + 0.35x)·e^(−x²),
+//                      over a white core e^(−6x²); with a white burst e^(−r²/0.04) at the centre, all
+//                      fading with (1 − p)
 
 uniform sampler2D Sampler0;
 
@@ -253,6 +264,52 @@ vec3 cracks(vec2 q, vec3 p) {
     return (AMBER * 0.30 + GOLD * halo * 0.6 * shimmer + WHITE_HOT * line * 1.6) * mask * p.r;
 }
 
+vec3 spectrum(float t) {
+    return clamp(0.5 + 0.5 * cos(TAU * (t - vec3(0.0, 0.333, 0.667))), 0.0, 1.0);
+}
+
+vec3 prism(vec2 q, vec3 p) {
+    vec2 e = q / vec2(fxAspect, 1.0);
+    float r = length(e);
+    float th = atan(e.y, e.x);
+    float ph = p.b * TAU;
+    float prog = p.g;
+    float f = 1.0 - prog;
+    vec3 L = vec3(0.0);
+
+    // facets: a triangular lattice; each triangle its own pane of tinted glass, leaded in white
+    vec2 s = q * 3.4;
+    vec2 t = vec2(s.x - s.y * 0.57735, s.y * 1.1547);
+    vec2 ci = floor(t);
+    vec2 cf = fract(t);
+    float upper = step(1.0, cf.x + cf.y);
+    float id = hash2(ci + upper * vec2(17.0, 31.0));
+    float d = upper > 0.5 ? min(min(1.0 - cf.x, 1.0 - cf.y), (cf.x + cf.y - 1.0) * 0.7071)
+                          : min(min(cf.x, cf.y), (1.0 - cf.x - cf.y) * 0.7071);
+    float band = smoothstep(0.7, 1.35, r);
+    float shimmer = 0.65 + 0.35 * sin(2.0 * ph + id * 40.0);
+    vec3 pane = spectrum(id + th / (2.0 * TAU) + 0.125 * sin(ph + id * TAU));
+    L += pane * 0.42 * shimmer * band;
+    L += WHITE_HOT * exp(-d / 0.028) * 0.6 * band;
+
+    // rays: twelve shafts turning with the phase, each running through the spectrum along its length
+    float a = th / TAU * 12.0 + p.b;
+    float ray = pow(abs(cos(3.14159265 * a)), 24.0);
+    L += spectrum(r * 0.7 - p.b) * ray * smoothstep(0.35, 1.4, r) * 0.8;
+
+    // the dispersion ring and its white heart
+    if (prog < 1.0) {
+        float R = 0.06 + 1.9 * prog;
+        float w = 0.04 + 0.13 * prog;
+        float rq = length(q);                 // true screen distance, so the ring is round
+        float x = (rq - R) / w;
+        L += spectrum(0.5 + 0.35 * x) * exp(-x * x) * 1.5 * f;
+        L += WHITE_HOT * exp(-6.0 * x * x) * 0.7 * f;
+        L += WHITE_HOT * exp(-rq * rq / 0.04) * 1.6 * f * f;
+    }
+    return L * p.r;
+}
+
 void main() {
     if (fxKind == 0) {
         vec4 color = texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
@@ -273,8 +330,10 @@ void main() {
         L = corona(q, p);
     } else if (fxKind == 4) {
         L = swirl(q, p);
-    } else {
+    } else if (fxKind == 5) {
         L = cracks(q, p);
+    } else {
+        L = prism(q, p);
     }
     vec4 c = asLight(L);
     c.a *= fxParams.a;
