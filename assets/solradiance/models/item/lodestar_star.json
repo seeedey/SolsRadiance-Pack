@@ -1,0 +1,43 @@
+{
+  "textures": {
+    "m": "solradiance:item/lodestar_star",
+    "particle": "solradiance:item/lodestar_star"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#m",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#m",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}
