@@ -1,0 +1,823 @@
+{
+  "parent": "solradiance:item/inferno_shackle/base",
+  "elements": [
+    {
+      "name": "cuff",
+      "from": [
+        6.5,
+        7,
+        6.5
+      ],
+      "to": [
+        9.5,
+        10,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            1.0,
+            0.75,
+            1.75
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            0.75,
+            1.0,
+            1.5,
+            1.75
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            1.5,
+            1.0,
+            2.25,
+            1.75
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            2.25,
+            1.0,
+            3.0,
+            1.75
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            3.0,
+            1.0,
+            3.75,
+            1.75
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            3.75,
+            1.0,
+            4.5,
+            1.75
+          ],
+          "texture": "#shackle"
+        }
+      }
+    },
+    {
+      "name": "cuff wrap",
+      "from": [
+        7,
+        10,
+        7
+      ],
+      "to": [
+        9,
+        12,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            1.0,
+            5.0,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            5.0,
+            1.0,
+            5.5,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            5.5,
+            1.0,
+            6.0,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            6.0,
+            1.0,
+            6.5,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            6.5,
+            1.0,
+            7.0,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            7.0,
+            1.0,
+            7.5,
+            1.5
+          ],
+          "texture": "#shackle"
+        }
+      }
+    },
+    {
+      "name": "cuff cap",
+      "from": [
+        6.5,
+        12,
+        6.5
+      ],
+      "to": [
+        9.5,
+        13,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.5,
+            1.0,
+            8.25,
+            1.25
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            8.25,
+            1.0,
+            9.0,
+            1.25
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            9.0,
+            1.0,
+            9.75,
+            1.25
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            9.75,
+            1.0,
+            10.5,
+            1.25
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            10.5,
+            1.0,
+            11.25,
+            1.75
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            11.25,
+            1.0,
+            12.0,
+            1.75
+          ],
+          "texture": "#shackle"
+        }
+      }
+    },
+    {
+      "name": "loop",
+      "from": [
+        7.5,
+        13,
+        7.5
+      ],
+      "to": [
+        8.5,
+        15,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12.0,
+            1.0,
+            12.25,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            12.25,
+            1.0,
+            12.5,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            12.5,
+            1.0,
+            12.75,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            12.75,
+            1.0,
+            13.0,
+            1.5
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            13.0,
+            1.0,
+            13.25,
+            1.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            13.25,
+            1.0,
+            13.5,
+            1.25
+          ],
+          "texture": "#shackle"
+        }
+      }
+    },
+    {
+      "name": "fuse ring",
+      "from": [
+        6.25,
+        8,
+        6.25
+      ],
+      "to": [
+        9.75,
+        9,
+        9.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.5,
+            1.0,
+            14.5,
+            1.25
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            14.5,
+            1.0,
+            15.5,
+            1.25
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            1.75,
+            1.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            1.0,
+            1.75,
+            2.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            2.0,
+            1.75,
+            3.0,
+            2.75
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            3.0,
+            1.75,
+            4.0,
+            2.75
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "fuse ring turned",
+      "from": [
+        6.25,
+        8,
+        6.25
+      ],
+      "to": [
+        9.75,
+        9,
+        9.75
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.0,
+            1.75,
+            5.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            5.0,
+            1.75,
+            6.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            6.0,
+            1.75,
+            7.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            7.0,
+            1.75,
+            8.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            8.0,
+            1.75,
+            9.0,
+            2.75
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            9.0,
+            1.75,
+            10.0,
+            2.75
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          8.5,
+          8
+        ],
+        "axis": "y",
+        "angle": 45
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "flare up",
+      "from": [
+        7.5,
+        15,
+        7.5
+      ],
+      "to": [
+        8.5,
+        18,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10.0,
+            1.75,
+            10.25,
+            2.5
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            10.25,
+            1.75,
+            10.5,
+            2.5
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            10.5,
+            1.75,
+            10.75,
+            2.5
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            10.75,
+            1.75,
+            11.0,
+            2.5
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            11.0,
+            1.75,
+            11.25,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            11.25,
+            1.75,
+            11.5,
+            2.0
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "flare left",
+      "from": [
+        5.5,
+        15.5,
+        7.5
+      ],
+      "to": [
+        7.5,
+        16.5,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            11.5,
+            1.75,
+            12.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            12.0,
+            1.75,
+            12.5,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            12.5,
+            1.75,
+            12.75,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            12.75,
+            1.75,
+            13.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            13.0,
+            1.75,
+            13.5,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            13.5,
+            1.75,
+            14.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          7.5,
+          16,
+          8
+        ],
+        "axis": "z",
+        "angle": 22.5
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "flare right",
+      "from": [
+        8.5,
+        15.5,
+        7.5
+      ],
+      "to": [
+        10.5,
+        16.5,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.0,
+            1.75,
+            14.5,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            14.5,
+            1.75,
+            15.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            15.0,
+            1.75,
+            15.25,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            15.25,
+            1.75,
+            15.5,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            15.5,
+            1.75,
+            16.0,
+            2.0
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            2.75,
+            0.5,
+            3.0
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8.5,
+          16,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "flare front",
+      "from": [
+        7.5,
+        15.5,
+        5.5
+      ],
+      "to": [
+        8.5,
+        16.5,
+        7.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            2.75,
+            0.75,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            0.75,
+            2.75,
+            1.0,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            1.0,
+            2.75,
+            1.5,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            1.5,
+            2.75,
+            2.0,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            2.0,
+            2.75,
+            2.25,
+            3.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            2.25,
+            2.75,
+            2.5,
+            3.25
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          16,
+          7.5
+        ],
+        "axis": "x",
+        "angle": -22.5
+      },
+      "light_emission": 15,
+      "shade": false
+    },
+    {
+      "name": "flare back",
+      "from": [
+        7.5,
+        15.5,
+        8.5
+      ],
+      "to": [
+        8.5,
+        16.5,
+        10.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.5,
+            2.75,
+            2.75,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            2.75,
+            2.75,
+            3.0,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            3.0,
+            2.75,
+            3.5,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            3.5,
+            2.75,
+            4.0,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            4.0,
+            2.75,
+            4.25,
+            3.25
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            4.25,
+            2.75,
+            4.5,
+            3.25
+          ],
+          "texture": "#shackle"
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          16,
+          8.5
+        ],
+        "axis": "x",
+        "angle": 22.5
+      },
+      "light_emission": 15,
+      "shade": false
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "parent": "solradiance:item/inferno_shackle/base",
+  "elements": [
+    {
+      "name": "link",
+      "from": [
+        6.5,
+        5.5,
+        7.5
+      ],
+      "to": [
+        9.5,
+        10.5,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            2.75,
+            5.25,
+            4.0
+          ],
+          "texture": "#shackle"
+        },
+        "south": {
+          "uv": [
+            5.25,
+            2.75,
+            6.0,
+            4.0
+          ],
+          "texture": "#shackle"
+        },
+        "east": {
+          "uv": [
+            6.0,
+            2.75,
+            6.25,
+            4.0
+          ],
+          "texture": "#shackle"
+        },
+        "west": {
+          "uv": [
+            6.25,
+            2.75,
+            6.5,
+            4.0
+          ],
+          "texture": "#shackle"
+        },
+        "up": {
+          "uv": [
+            6.5,
+            2.75,
+            7.25,
+            3.0
+          ],
+          "texture": "#shackle"
+        },
+        "down": {
+          "uv": [
+            7.25,
+            2.75,
+            8.0,
+            3.0
+          ],
+          "texture": "#shackle"
+        }
+      }
+    }
+  ]
+}

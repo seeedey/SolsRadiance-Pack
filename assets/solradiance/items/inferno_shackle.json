@@ -1,0 +1,1318 @@
+{
+  "model": {
+    "type": "minecraft:composite",
+    "models": [
+      {
+        "type": "minecraft:model",
+        "model": "solradiance:item/inferno_shackle/body"
+      },
+      {
+        "type": "minecraft:select",
+        "property": "minecraft:display_context",
+        "cases": [
+          {
+            "when": "firstperson_righthand",
+            "model": {
+              "type": "minecraft:range_dispatch",
+              "property": "minecraft:cooldown",
+              "entries": [
+                {
+                  "threshold": 0.05,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_09"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.15,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_08"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.25,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_07"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_right_07"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.35,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_06"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_right_06"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.45,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_05"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_right_05"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.55,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_04"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_right_04"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.65,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_03"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_right_03"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.75,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_02"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_right_02"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.85,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_01"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_right_01"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.95,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_00"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_right_00"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "fallback": {
+                "type": "minecraft:range_dispatch",
+                "property": "minecraft:custom_model_data",
+                "index": 0,
+                "entries": [
+                  {
+                    "threshold": 1,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_00"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_right_00"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 2,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_01"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_right_01"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 3,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_02"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_right_02"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 4,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_03"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_right_03"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 5,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_04"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_right_04"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 6,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_05"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_right_05"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 7,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_06"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_right_06"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 8,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_07"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_right_07"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 9,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_08"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 10,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_09"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "fallback": {
+                  "type": "minecraft:model",
+                  "model": "solradiance:item/inferno_shackle/chain_rest"
+                }
+              }
+            }
+          },
+          {
+            "when": "firstperson_lefthand",
+            "model": {
+              "type": "minecraft:range_dispatch",
+              "property": "minecraft:cooldown",
+              "entries": [
+                {
+                  "threshold": 0.05,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_09"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.15,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_08"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.25,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_07"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_left_07"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.35,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_06"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_left_06"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.45,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_05"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_left_05"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.55,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_04"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_left_04"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.65,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_03"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_left_03"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.75,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_02"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_left_02"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.85,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_01"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_left_01"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.95,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_00"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/fp_left_00"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "fallback": {
+                "type": "minecraft:range_dispatch",
+                "property": "minecraft:custom_model_data",
+                "index": 0,
+                "entries": [
+                  {
+                    "threshold": 1,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_00"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_left_00"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 2,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_01"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_left_01"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 3,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_02"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_left_02"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 4,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_03"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_left_03"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 5,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_04"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_left_04"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 6,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_05"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_left_05"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 7,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_06"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_left_06"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 8,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_07"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/fp_left_07"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 9,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_08"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 10,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_09"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "fallback": {
+                  "type": "minecraft:model",
+                  "model": "solradiance:item/inferno_shackle/chain_rest"
+                }
+              }
+            }
+          },
+          {
+            "when": "thirdperson_righthand",
+            "model": {
+              "type": "minecraft:range_dispatch",
+              "property": "minecraft:cooldown",
+              "entries": [
+                {
+                  "threshold": 0.05,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_09"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.15,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_08"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.25,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_07"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_right_07"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.35,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_06"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_right_06"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.45,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_05"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_right_05"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.55,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_04"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_right_04"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.65,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_03"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_right_03"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.75,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_02"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_right_02"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.85,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_01"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_right_01"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.95,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_00"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_right_00"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "fallback": {
+                "type": "minecraft:range_dispatch",
+                "property": "minecraft:custom_model_data",
+                "index": 0,
+                "entries": [
+                  {
+                    "threshold": 1,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_00"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_right_00"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 2,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_01"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_right_01"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 3,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_02"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_right_02"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 4,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_03"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_right_03"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 5,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_04"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_right_04"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 6,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_05"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_right_05"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 7,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_06"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_right_06"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 8,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_07"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_right_07"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 9,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_08"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 10,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_09"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "fallback": {
+                  "type": "minecraft:model",
+                  "model": "solradiance:item/inferno_shackle/chain_rest"
+                }
+              }
+            }
+          },
+          {
+            "when": "thirdperson_lefthand",
+            "model": {
+              "type": "minecraft:range_dispatch",
+              "property": "minecraft:cooldown",
+              "entries": [
+                {
+                  "threshold": 0.05,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_09"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.15,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_08"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.25,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_07"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_left_07"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.35,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_06"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_left_06"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.45,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_05"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_left_05"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.55,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_04"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_left_04"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.65,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_03"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_left_03"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.75,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_02"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_left_02"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.85,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_01"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_left_01"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "threshold": 0.95,
+                  "model": {
+                    "type": "minecraft:composite",
+                    "models": [
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/chain_00"
+                      },
+                      {
+                        "type": "minecraft:model",
+                        "model": "solradiance:item/inferno_shackle/lash/tp_left_00"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "fallback": {
+                "type": "minecraft:range_dispatch",
+                "property": "minecraft:custom_model_data",
+                "index": 0,
+                "entries": [
+                  {
+                    "threshold": 1,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_00"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_left_00"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 2,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_01"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_left_01"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 3,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_02"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_left_02"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 4,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_03"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_left_03"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 5,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_04"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_left_04"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 6,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_05"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_left_05"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 7,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_06"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_left_06"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 8,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_07"
+                        },
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/lash/tp_left_07"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 9,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_08"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "threshold": 10,
+                    "model": {
+                      "type": "minecraft:composite",
+                      "models": [
+                        {
+                          "type": "minecraft:model",
+                          "model": "solradiance:item/inferno_shackle/chain_09"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "fallback": {
+                  "type": "minecraft:model",
+                  "model": "solradiance:item/inferno_shackle/chain_rest"
+                }
+              }
+            }
+          }
+        ],
+        "fallback": {
+          "type": "minecraft:model",
+          "model": "solradiance:item/inferno_shackle/chain_rest"
+        }
+      }
+    ]
+  },
+  "hand_animation_on_swap": false
+}
