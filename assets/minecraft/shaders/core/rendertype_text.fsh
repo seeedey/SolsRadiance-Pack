@@ -46,6 +46,9 @@
 //              e^(−d/0.035), a gold halo e^(−d/0.16), a faint amber in the cells, all beyond the radius
 //              1.45 − 1.40·reach and clear of the very middle. Feature points keep 0.12 inside their cell,
 //              so the 3×3 search always finds the true two nearest. Each cell's halo shimmers by 0.75 + 0.25·sin(40·id + 2πφ).
+//   in fire    (kinds 7-10: flash, corona, swirl, cracks for the Burning Star) the same light, recoloured by its
+//              own brightness: crimson where it is faint, red-orange through the body, white-pink where it
+//              saturates (burn(L) below), so gold and moonlight both turn to fire.
 //   prism      (r strength, g ring progress p: 1 = no ring, b phase φ)
 //              the Dawnsplitter's light split into its colours. spectrum(t) = ½ + ½cos(2π(t − (0, ⅓, ⅔))).
 //              facets  a triangular lattice (3.4 per screen height) at the edges, smoothstep(0.7, 1.35, r):
@@ -135,6 +138,14 @@ vec4 asLight(vec3 L) {
     float a = 1.0 - exp(-peak);
     a += (bayer4(gl_FragCoord.xy) - 0.5) / 255.0;
     return vec4(L / peak, clamp(a, 0.0, 1.0));
+}
+
+// the Burning Star's light: the same energy, recoloured crimson -> red-orange -> white-pink by its brightness
+vec3 burn(vec3 L) {
+    float lum = max(L.r, max(L.g, L.b));
+    vec3 c = mix(vec3(0.85, 0.06, 0.05), vec3(1.0, 0.30, 0.10), smoothstep(0.15, 0.9, lum));
+    c = mix(c, vec3(1.0, 0.86, 0.82), smoothstep(1.1, 2.6, lum));
+    return c * lum;
 }
 
 vec3 flash(vec2 q, vec3 p) {
@@ -322,18 +333,23 @@ void main() {
     vec2 q = fxPos * vec2(fxAspect, 1.0);
     vec3 p = fxParams.rgb;
     vec3 L;
-    if (fxKind == 1) {
+    bool fire = fxKind >= 7;
+    int kind = fire ? (fxKind == 7 ? 1 : fxKind - 5) : fxKind;
+    if (kind == 1) {
         L = flash(q, p);
-    } else if (fxKind == 2) {
+    } else if (kind == 2) {
         L = supernova(q, p);
-    } else if (fxKind == 3) {
+    } else if (kind == 3) {
         L = corona(q, p);
-    } else if (fxKind == 4) {
+    } else if (kind == 4) {
         L = swirl(q, p);
-    } else if (fxKind == 5) {
+    } else if (kind == 5) {
         L = cracks(q, p);
     } else {
         L = prism(q, p);
+    }
+    if (fire) {
+        L = burn(L);
     }
     vec4 c = asLight(L);
     c.a *= fxParams.a;

@@ -53,6 +53,42 @@
       "chars": [
         ""
       ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_flash_fire.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_corona_fire.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_swirl_fire.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "solradiance:font/fx_cracks_fire.png",
+      "ascent": -1249,
+      "height": 8,
+      "chars": [
+        ""
+      ]
     }
   ]
 }
