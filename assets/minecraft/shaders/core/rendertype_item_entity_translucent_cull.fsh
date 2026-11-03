@@ -11,6 +11,9 @@
 // The marker is a flat colour (it survives the atlas's per-sprite mipmaps) that no vanilla item texture uses:
 //     a = 250   the signature
 //     r = 200   the star (solradiance:lodestar_star), r = 201 the sky (solradiance:lodestar_sky)
+//     r = 202   the Burning Star's star (inferno_star), r = 203 its sky (inferno_sky): the Rubrum Shackle's forging.
+//               The same star and sky, set alight: a crimson-to-white ramp with a pink-silver rim, and a smouldering
+//               blood-red night with ember stars
 //     b         the clock: the sprite is animated, one frame a tick, b stepping 0..255 (the item pass has no time
 //               uniform, so this is its only clock). The star's loop is 12.8 s, the sky's 25.6 s.
 //
@@ -185,6 +188,15 @@ Face face(vec3 P, vec2 L, vec3 dPdx, vec3 dPdy, vec2 dLdx, vec2 dLdy, vec3 Pc, v
 
 const float STAR_FILL = 0.38;
 
+// the Burning Star's temperature to colour: char, crimson, red, orange, white-pink, pink-silver
+vec3 hellRamp(float T) {
+    vec3 c = mix(vec3(0.30, 0.02, 0.02), vec3(0.85, 0.08, 0.06), smoothstep(0.0, 0.45, T));
+    c = mix(c, vec3(1.0, 0.29, 0.10), smoothstep(0.35, 0.75, T));
+    c = mix(c, vec3(1.0, 0.70, 0.45), smoothstep(0.70, 1.05, T));
+    c = mix(c, vec3(1.0, 0.93, 0.90), smoothstep(1.0, 1.3, T));
+    return mix(c, vec3(0.95, 0.82, 0.88), smoothstep(1.3, 1.6, T));
+}
+
 // temperature to colour: ember, orange, gold, white-gold, white, blue-white
 vec3 ramp(float T) {
     vec3 c = mix(vec3(0.55, 0.10, 0.02), vec3(1.0, 0.42, 0.06), smoothstep(0.0, 0.45, T));
@@ -194,7 +206,7 @@ vec3 ramp(float T) {
     return mix(c, vec3(0.86, 0.93, 1.0), smoothstep(1.3, 1.6, T));
 }
 
-bool star(vec3 eye, Face f, float ph, vec3 k, out vec4 col, out vec3 dp) {
+bool star(vec3 eye, Face f, float ph, vec3 k, bool hell, out vec4 col, out vec3 dp) {
     col = vec4(0.0);
     dp = fxPos;
     float heat = k.r, fury = k.g, flash = k.b;
@@ -221,9 +233,10 @@ bool star(vec3 eye, Face f, float ph, vec3 k, out vec4 col, out vec3 dp) {
         vec3 warp = vec3(fbm4(q * 2.2 + loop3(ph, 0.5)), fbm4(q * 2.2 + vec3(5.2, 1.3, 2.8)), 0.0);
         float veins = ridged4(q * 3.0 + warp * (1.2 + 1.5 * fury) + loop3(ph, 0.4));
         float T = 0.5 + 0.55 * heat + 0.35 * cell * lane + 0.4 * (veins - 0.5) * (1.0 + fury);
-        vec3 c = ramp(T) * mix(1.0, 1.25, veins * veins);
+        vec3 c = (hell ? hellRamp(T) : ramp(T)) * mix(1.0, 1.25, veins * veins);
         c *= mix(mix(0.45, 0.8, heat), 1.0, pow(ndv, 0.5));            // limb darkening, less when white-hot
-        c += mix(GOLD, MOON, 0.4 + 0.6 * heat) * pow(1.0 - ndv, 3.0) * (0.55 + 0.6 * heat);
+        vec3 rimCol = hell ? mix(vec3(1.0, 0.23, 0.17), vec3(0.95, 0.80, 0.85), 0.4 + 0.6 * heat) : mix(GOLD, MOON, 0.4 + 0.6 * heat);
+        c += rimCol * pow(1.0 - ndv, 3.0) * (0.55 + 0.6 * heat);
         c = mix(c, vec3(1.0, 0.98, 0.92) * 1.3, flash * 0.75);
         col = vec4(c, 1.0);
         dp = hit;
@@ -246,7 +259,8 @@ bool star(vec3 eye, Face f, float ph, vec3 k, out vec4 col, out vec3 dp) {
     float a = glow * (0.55 + 0.25 * fury) + rim * 0.6 + flare;
     a *= 1.0 - smoothstep(0.75, 1.0, max(u.x, u.y));          // nothing reaches the quad's edge
     a = clamp(a * (1.0 + flash), 0.0, 0.95);
-    vec3 c = mix(ramp(0.55 + 0.55 * heat), vec3(1.0, 0.96, 0.86), rim * 0.7 + 0.3 * heat);
+    vec3 c = mix(hell ? hellRamp(0.45 + 0.55 * heat) : ramp(0.55 + 0.55 * heat),
+                 hell ? vec3(1.0, 0.82, 0.74) : vec3(1.0, 0.96, 0.86), rim * 0.7 + 0.3 * heat);
     c = mix(c, vec3(1.0), clamp(flare + flash * 0.5, 0.0, 1.0));
     col = vec4(c * 1.15, a);
     dp = eye * (b + R);
@@ -288,7 +302,7 @@ vec3 meteors(vec3 d, float ph) {
     return acc;
 }
 
-vec4 sky(vec3 d, float ph, vec3 k, ivec2 light) {
+vec4 sky(vec3 d, float ph, vec3 k, ivec2 light, bool hell) {
     float presence = k.r, awaken = k.g, flash = k.b;
     float hush = float(light.y) / 15.0;
     float up = d.y;
@@ -330,9 +344,20 @@ vec4 sky(vec3 d, float ph, vec3 k, ivec2 light) {
     vec3 halo = mix(vec3(0.85, 0.30, 0.38), vec3(1.0, 0.80, 0.36), smoothstep(0.6, 0.95, near));
     col += halo * awaken * (pow(near, 14.0) * (0.25 + 0.9 * wisp) + pow(near, 40.0) * 0.4);
 
+    if (hell) {
+        // set alight: the night turns to smouldering blood-red, its light to embers, and the constellation's glow to
+        // a slow burn of crimson and orange with smoke drifting through it
+        float lum = dot(col, vec3(0.30, 0.50, 0.20));
+        vec3 base = mix(vec3(0.075, 0.010, 0.012), vec3(0.020, 0.002, 0.004), smoothstep(-0.05, 0.65, up));
+        float smoke = fbm4(d * 2.6 + loop3(ph, 0.3) + vec3(4.0, 0.0, 2.0));
+        base += vec3(0.16, 0.025, 0.01) * smoothstep(0.45, 0.85, smoke) * (1.0 - smoothstep(0.0, 0.5, up));
+        col = base + vec3(1.0, 0.42, 0.22) * lum * 1.15;
+        vec3 burn = mix(vec3(0.75, 0.06, 0.05), vec3(1.0, 0.55, 0.15), smoothstep(0.6, 0.95, near));
+        col += burn * awaken * (pow(near, 10.0) * (0.3 + 0.9 * wisp) + pow(near, 40.0) * 0.5);
+    }
     col *= 1.0 - 0.6 * hush;
     col = mix(FogColor.rgb, col, smoothstep(-0.03, 0.16, up));      // meet the terrain's distance fog
-    col = mix(col, vec3(1.0, 0.93, 0.76), flash * 0.85);
+    col = mix(col, hell ? vec3(1.0, 0.62, 0.42) : vec3(1.0, 0.93, 0.76), flash * 0.85);
     return vec4(col, presence);
 }
 
@@ -348,17 +373,19 @@ void main() {
     vec2 dLdy = dFdy(fxLocal);
 
     vec4 m = texel * 255.0;
-    if (abs(m.a - 250.0) < 0.5 && (abs(m.r - 200.0) < 0.5 || abs(m.r - 201.0) < 0.5)) {
+    if (abs(m.a - 250.0) < 0.5 && m.r > 199.5 && m.r < 203.5) {
         float ph = floor(m.b + 0.5) / 256.0;
-        if (m.r > 200.5) {
+        int kind = int(m.r + 0.5);
+        bool hell = kind >= 202;
+        if (kind == 201 || kind == 203) {
             gl_FragDepth = gl_FragCoord.z;
-            fragColor = sky(normalize(fxPos), ph, fxTint.rgb, fxLight);
+            fragColor = sky(normalize(fxPos), ph, fxTint.rgb, fxLight, hell);
             return;
         }
         Face f = face(fxPos, fxLocal, dPdx, dPdy, dLdx, dLdy, fxCorner, fxCornerLocal);
         vec4 col;
         vec3 dp;
-        if (!f.ok || !star(normalize(fxPos), f, ph, fxTint.rgb, col, dp)) {
+        if (!f.ok || !star(normalize(fxPos), f, ph, fxTint.rgb, hell, col, dp)) {
             discard;
         }
         float zView = (ModelViewMat * vec4(dp, 1.0)).z;

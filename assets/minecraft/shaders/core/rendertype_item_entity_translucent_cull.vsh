@@ -11,7 +11,7 @@
 // accepted by desktop GL 3.30 but not by strict compilers.)
 //
 // The sky is one quad that this shader throws to the far plane over the whole screen. Its sprite is a marker
-// (alpha 250, red 201) and its model's face takes the sprite's middle (uv 4..12), so the texel read at every corner
+// (alpha 250, red 201, or 203 for the Burning Star's) and its model's face takes the sprite's middle (uv 4..12), so the texel read at every corner
 // lies inside the sprite and is the marker too. Its fragments then only need the eye ray, which is passed in fxPos.
 //
 // fxPos          camera-relative position in world orientation (Minecraft bakes the entity's pose into the vertices,
@@ -68,7 +68,7 @@ void main() {
     fxProjZW = vec4(ProjMat[2][2], ProjMat[3][2], ProjMat[2][3], ProjMat[3][3]);
 
     vec4 m = textureLod(Sampler0, UV0, 0.0) * 255.0;
-    if (abs(m.a - 250.0) < 0.5 && abs(m.r - 201.0) < 0.5) {
+    if (abs(m.a - 250.0) < 0.5 && (abs(m.r - 201.0) < 0.5 || abs(m.r - 203.0) < 0.5)) {
         // the sky: corners (-1,-1) (1,-1) (1,1) (-1,1), counter-clockwise so the face is never culled, just in front of
         // the far plane so it paints only where nothing has been drawn yet
         vec2 ndc = fxLocal * 2.0 - 1.0;
