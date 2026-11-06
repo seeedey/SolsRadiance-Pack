@@ -58,6 +58,21 @@ void main() {
         fragColor = apply_fog(vec4(c, a), sphericalVertexDistance, cylindricalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd, FogColor);
         return;
     }
+    // Prism Step's RGB split: the same afterimage as one channel of light, alpha 242 red, 243 green, 244 blue
+    float split = color.a * 255.0 - 242.0;
+    if (split > -0.5 && split < 2.5) {
+        vec3 view = normalize(-fxPos);
+        float rim = 1.0 - abs(dot(normalize(fxNormal), view));
+        int ch = int(split + 0.5);
+        vec3 tint = ch == 0 ? vec3(1.0, 0.16, 0.3) : ch == 1 ? vec3(0.25, 1.0, 0.5) : vec3(0.3, 0.45, 1.0);
+        vec3 c = mix(tint * (0.65 + 0.35 * color.g), vec3(1.0), clamp(0.5 * rim * rim + 0.35 * color.r, 0.0, 1.0));
+        float a = clamp((0.3 + 0.6 * rim + 0.3 * color.r) * color.b, 0.0, 1.0);
+        if (a < 0.02) {
+            discard;
+        }
+        fragColor = apply_fog(vec4(c, a), sphericalVertexDistance, cylindricalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd, FogColor);
+        return;
+    }
 #ifdef ALPHA_CUTOUT
     if (color.a < ALPHA_CUTOUT) {
         discard;
