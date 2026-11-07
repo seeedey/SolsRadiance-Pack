@@ -1,8 +1,44 @@
 {
   "credit": "Sol's Radiance - built by tools/rubrum_fx_pack.py",
-  "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "solradiance:item/fx/rubrum_shard",
-    "layer1": "solradiance:item/fx/rubrum_crack"
-  }
+    "sprite": "solradiance:item/fx/rubrum_shard",
+    "particle": "solradiance:item/fx/rubrum_shard"
+  },
+  "elements": [
+    {
+      "name": "rubrum_shard",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "shade": false,
+      "light_emission": 15,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#sprite"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#sprite"
+        }
+      }
+    }
+  ]
 }
