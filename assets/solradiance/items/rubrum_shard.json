@@ -1,0 +1,18 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "solradiance:item/fx/rubrum_shard",
+    "tints": [
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 0,
+        "default": 16730682
+      },
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 1,
+        "default": 16769766
+      }
+    ]
+  }
+}

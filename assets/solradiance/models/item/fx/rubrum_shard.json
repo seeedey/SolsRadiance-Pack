@@ -1,0 +1,8 @@
+{
+  "credit": "Sol's Radiance - built by tools/rubrum_fx_pack.py",
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "solradiance:item/fx/rubrum_shard",
+    "layer1": "solradiance:item/fx/rubrum_crack"
+  }
+}
