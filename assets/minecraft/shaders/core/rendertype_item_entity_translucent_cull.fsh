@@ -11,6 +11,7 @@
 // The marker is a flat colour (it survives the atlas's per-sprite mipmaps) that no vanilla item texture uses:
 //     a = 250   the signature
 //     r = 200   the star (solradiance:lodestar_star), r = 201 the sky (solradiance:lodestar_sky)
+//     r = 204   the Conjunction's binary star (binary_star): both stars in one quad, see THE BINARY below
 //     r = 202   the Burning Star's star (inferno_star), r = 203 its sky (inferno_sky): the Rubrum Shackle's forging.
 //               The same star and sky, set alight: a crimson-to-white ramp with a pink-silver rim, and a smouldering
 //               blood-red night with ember stars
@@ -40,6 +41,17 @@
 //     tint b   flash       a white-gold flash of the whole sky (the release)
 //     light.x  the constellation's azimuth from the altar, in 16ths of a turn (its elevation is ~47°)
 //     light.y  hush, 0..15: the sky dims and its stars go out as the star drinks the light
+//
+// THE BINARY (r = 204, solradiance:binary_star) is the Conjunction's twin star: the Lodestar and the Burning Star in
+// one billboarded quad, on a real orbit about its middle. The orbit's angle is the quad's own roll (the display's
+// rotation about its facing, which the client interpolates every frame), read back as the angle of the quad's T edge
+// in the camera's frame; the orbit is tilted almost edge-on, so each star passes in front of the other once a turn.
+//     tint r   separation  1 the widest orbit, 0 one merged star
+//     tint g   fury        how hot both burn and how thick the stream between them
+//     tint b   flash       a white bloom
+//     light.x  eclipse, 0..15: both stars dim to embers, a diamond ring is left round the nearer one
+//     light.y  shell, 0..15: the merger's ring racing out to the quad's edge
+// Between the stars runs the stream, an S-curved ribbon of plasma, gold at one end and crimson at the other.
 
 uniform sampler2D Sampler0;
 
@@ -267,6 +279,132 @@ bool star(vec3 eye, Face f, float ph, vec3 k, bool hell, out vec4 col, out vec3 
     return a >= 0.03;
 }
 
+// ---- the binary ----------------------------------------------------------------------------------------------------
+
+const float BIN_FILL = 0.17;       // each star's radius as a share of the quad's half-width
+const float BIN_ORBIT = 0.42;      // the widest orbit's radius, the same way
+
+// one star of the pair: the surface at normal n, hotter on the side that faces its companion
+vec3 twinSurface(vec3 n, vec3 gaze, vec3 toOther, float ph, float heat, float fury, bool hell) {
+    vec3 axis = normalize(hell ? vec3(-0.3, 1.0, 0.2) : vec3(0.25, 1.0, 0.18));
+    vec3 p = rotAxis(n, axis, (hell ? -2.0 : 2.0) * ph * TAU);
+    vec2 g = cell3(p * 5.0 + loop3(ph, 0.6));
+    float cell = pow(1.0 - clamp(g.x * 1.3, 0.0, 1.0), 1.5) * smoothstep(0.0, 0.12, g.y - g.x);
+    float veins = ridged4(p * 2.6 + loop3(ph, 0.4) + vec3(hell ? 4.0 : 0.0));
+    float tide = max(dot(n, toOther), 0.0);
+    float T = 0.45 + 0.5 * heat + 0.35 * cell + 0.4 * (veins - 0.5) * (1.0 + fury) + 0.35 * tide * tide;
+    float ndv = clamp(dot(n, gaze), 0.0, 1.0);
+    vec3 c = (hell ? hellRamp(T) : ramp(T)) * mix(1.0, 1.25, veins * veins);
+    c *= mix(0.5, 1.0, pow(ndv, 0.5));
+    vec3 rimCol = hell ? vec3(1.0, 0.45, 0.50) : mix(GOLD, MOON, 0.5);
+    return c + rimCol * pow(1.0 - ndv, 3.0) * 0.7;
+}
+
+bool binary(vec3 eye, Face f, float ph, vec3 k, ivec2 light, out vec4 col, out vec3 dp) {
+    col = vec4(0.0);
+    dp = fxPos;
+    float sep = k.r, fury = k.g, flash = k.b;
+    float ecl = float(light.x) / 15.0;
+    float shell = float(light.y) / 15.0;
+    vec3 C = f.C;
+    float H = f.edge * 0.5;
+    float bC = dot(eye, C);
+    if (bC <= 0.0) return false;
+
+    // the camera's axes in world orientation, and the quad's roll in them: the orbit's angle
+    vec3 right = vec3(ModelViewMat[0][0], ModelViewMat[1][0], ModelViewMat[2][0]);
+    vec3 up = vec3(ModelViewMat[0][1], ModelViewMat[1][1], ModelViewMat[2][1]);
+    vec3 That = normalize(f.T);
+    float th = atan(dot(That, up), dot(That, right));
+    vec3 toward = -normalize(C);
+    vec3 deep = normalize(toward * 0.97 + up * 0.22);
+    vec3 arm = right * cos(th) + deep * sin(th);
+    float a = H * BIN_ORBIT * sep;
+    float R = H * BIN_FILL * (1.0 + 0.45 * (1.0 - sep) * (1.0 - sep));
+    vec3 A = C + arm * a;             // the Lodestar
+    vec3 B = C - arm * a;             // the Burning Star
+    float heat = 0.25 + 0.45 * fury + 0.6 * (1.0 - sep);
+
+    float bA = dot(eye, A), bB = dot(eye, B);
+    float qA = dot(A, A) - bA * bA, qB = dot(B, B) - bB * bB;      // closest approach, squared
+    float dA = R * R - qA, dB = R * R - qB;
+    float tA = dA >= 0.0 ? bA - sqrt(dA) : 1e30;
+    float tB = dB >= 0.0 ? bB - sqrt(dB) : 1e30;
+    vec2 u = abs(fxLocal * 2.0 - 1.0);
+    float edgeFade = 1.0 - smoothstep(0.78, 1.0, max(u.x, u.y));
+
+    if (min(tA, tB) < 1e29) {
+        bool hell = tB < tA;
+        vec3 S = hell ? B : A;
+        vec3 hit = eye * min(tA, tB);
+        vec3 n = normalize(hit - S);
+        vec3 c = twinSurface(n, toward, normalize((hell ? A : B) - S + toward * 1e-4), ph, heat, fury, hell);
+        // merged: one white star
+        c = mix(c, vec3(1.0, 0.96, 0.92) * 1.2, smoothstep(0.35, 0.0, sep) * 0.8);
+        c *= 1.0 - 0.88 * ecl;
+        c = mix(c, vec3(1.0, 0.98, 0.94) * 1.3, flash * 0.8);
+        col = vec4(c, 1.0);
+        dp = hit;
+        return true;
+    }
+
+    // the coronas, each in its own colour
+    float rhoA = sqrt(max(qA, 0.0)) / R, rhoB = sqrt(max(qB, 0.0)) / R;
+    vec3 sideA = normalize(eye * bA - A), sideB = normalize(eye * bB - B);
+    float sA = 0.4 + 1.1 * vnoise3(sideA * 3.4 + loop3(ph, 0.9));
+    float sB = 0.4 + 1.1 * vnoise3(sideB * 3.4 + loop3(ph, 0.9) + vec3(5.0));
+    float kfall = 3.6 - 1.6 * fury;
+    float gA = exp(-(rhoA - 1.0) * kfall / sA), gB = exp(-(rhoB - 1.0) * kfall / sB);
+    float rimA = pow(1.0 - smoothstep(0.0, 0.16, rhoA - 1.0), 2.0);
+    float rimB = pow(1.0 - smoothstep(0.0, 0.16, rhoB - 1.0), 2.0);
+    vec3 cA = mix(ramp(0.6 + 0.5 * heat), vec3(1.0, 0.96, 0.86), rimA * 0.7);
+    vec3 cB = mix(hellRamp(0.5 + 0.5 * heat), vec3(1.0, 0.82, 0.78), rimB * 0.7);
+    float dim = 1.0 - 0.8 * ecl;
+    float wA = (gA * 0.8 + rimA * 0.6) * dim, wB = (gB * 0.8 + rimB * 0.6) * dim;
+
+    // the stream: the nearest point of the S-curve from A to B to this ray
+    vec3 ab = B - A;
+    float lab = max(length(ab), 1e-5);
+    vec3 abn = ab / lab;
+    float s = clamp(dot(eye * bC - A, abn) / lab, 0.0, 1.0);
+    vec3 bend = normalize(cross(abn, cross(right, deep)) + vec3(1e-5));
+    vec3 q = A + ab * s + bend * sin(s * TAU) * a * 0.22;
+    float bq = dot(eye, q);
+    float dq = sqrt(max(dot(q, q) - bq * bq, 0.0));
+    float flow = vnoise3(vec3(s * 9.0 - ph * 64.0, th, 3.0)) * 0.7 + 0.3 + 0.4 * sin((s * 4.0 - ph * 32.0) * TAU);
+    float width = R * (0.26 + 0.30 * fury) * (0.6 + 0.8 * flow);
+    float stream = exp(-dq * dq / (width * width)) * smoothstep(0.02, 0.2, sep) * (0.35 + 0.65 * fury) * dim
+                 * smoothstep(0.0, 0.08, s) * smoothstep(1.0, 0.92, s);
+    vec3 cS = mix(vec3(1.0, 0.86, 0.45), vec3(1.0, 0.30, 0.28), smoothstep(0.25, 0.75, s)) * 1.25;
+
+    // the diamond ring: at the eclipse a hairline of white round the nearer star, and one bright bead on it
+    bool hellFront = bB < bA;
+    float rhoF = hellFront ? rhoB : rhoA;
+    vec3 sideF = hellFront ? sideB : sideA;
+    float ring = pow(1.0 - smoothstep(0.0, 0.07, abs(rhoF - 1.04)), 2.0) * ecl;
+    vec3 bd = sideF - normalize(right + up);
+    float bead = exp(-dot(bd, bd) * 9.0) * exp(-abs(rhoF - 1.05) * 6.0) * ecl * 1.6;
+
+    // the merger's shell: a ring racing out, rayed
+    float ur = length(fxLocal * 2.0 - 1.0);
+    float rs = 0.08 + 0.80 * shell;
+    vec3 rd = normalize(eye * bC - C + vec3(1e-6));
+    float rays = 0.55 + 0.9 * vnoise3(rd * 6.0 + vec3(11.0));
+    float shellA = step(0.01, shell) * (1.0 - shell) * (exp(-(ur - rs) * (ur - rs) / 0.0016) * 1.3
+                 + exp(-max(rs - ur, 0.0) * 5.0) * step(ur, rs) * 0.35 * rays);
+    vec3 cShell = mix(vec3(1.0, 0.80, 0.50), vec3(1.0, 0.55, 0.62), 0.5 + 0.5 * sin(dot(rd, right) * 7.0));
+
+    float flare = (exp(-u.x * 60.0) * exp(-u.y * 2.6) + exp(-u.y * 60.0) * exp(-u.x * 2.6)) * (flash * 0.9 + (1.0 - sep) * 0.25);
+    float al = wA + wB + stream + ring * 1.2 + bead * 1.5 + shellA + flare;
+    if (al < 1e-4) return false;
+    vec3 c = (cA * wA + cB * wB + cS * stream + vec3(1.0) * (ring * 1.2 + bead * 1.5 + flare) + cShell * shellA) / al;
+    c = mix(c, vec3(1.0), clamp(flash * 0.6, 0.0, 1.0));
+    al = clamp(al * (1.0 + flash) * edgeFade, 0.0, 0.95);
+    col = vec4(c * 1.15, al);
+    dp = eye * (bC + H * 0.6);
+    return al >= 0.03;
+}
+
 // ---- the sky -----------------------------------------------------------------------------------------------------
 
 // a layer of stars on the sphere of directions: rgb, each in its own colour, twinkling with the clock
@@ -373,10 +511,10 @@ void main() {
     vec2 dLdy = dFdy(fxLocal);
 
     vec4 m = texel * 255.0;
-    if (abs(m.a - 250.0) < 0.5 && m.r > 199.5 && m.r < 203.5) {
+    if (abs(m.a - 250.0) < 0.5 && m.r > 199.5 && m.r < 204.5) {
         float ph = floor(m.b + 0.5) / 256.0;
         int kind = int(m.r + 0.5);
-        bool hell = kind >= 202;
+        bool hell = kind == 202 || kind == 203;
         if (kind == 201 || kind == 203) {
             gl_FragDepth = gl_FragCoord.z;
             fragColor = sky(normalize(fxPos), ph, fxTint.rgb, fxLight, hell);
@@ -385,7 +523,9 @@ void main() {
         Face f = face(fxPos, fxLocal, dPdx, dPdy, dLdx, dLdy, fxCorner, fxCornerLocal);
         vec4 col;
         vec3 dp;
-        if (!f.ok || !star(normalize(fxPos), f, ph, fxTint.rgb, hell, col, dp)) {
+        bool drawn = f.ok && (kind == 204 ? binary(normalize(fxPos), f, ph, fxTint.rgb, fxLight, col, dp)
+                                          : star(normalize(fxPos), f, ph, fxTint.rgb, hell, col, dp));
+        if (!drawn) {
             discard;
         }
         float zView = (ModelViewMat * vec4(dp, 1.0)).z;
